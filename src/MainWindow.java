@@ -41,7 +41,8 @@ public class MainWindow extends JFrame
         Runtime.Version runTimeVersion = Runtime.version();
         version = runTimeVersion.toString();
         return version;
-       /* System.out.println("java.version=" + version);
+       /* 
+        System.out.println("java.version=" + version);
 
         version = System.getProperty("java.specification.version");
         System.out.println("java.specification.version=" + version);
@@ -51,7 +52,8 @@ public class MainWindow extends JFrame
 
         Runtime.Version runTimeVersion = Runtime.version();
         System.out.println("RunTime.Version=" + runTimeVersion);
-        System.out.println("RunTime.Version.feature()=" + runTimeVersion.feature()); // major version*/
+        System.out.println("RunTime.Version.feature()=" + runTimeVersion.feature()); // major version
+       */
     }
 
 }
