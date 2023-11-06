@@ -10,11 +10,12 @@ public class MainWindow extends JFrame
 
     private JPanel contentPane;
 
-    private MainWindow() {/* prevent default instances from being created */}
+    @SuppressWarnings("unused")
+	private MainWindow() {/* prevent default instances from being created */}
 
-     /**
+    /**
      * Create the frame.
-     */
+    */
     public MainWindow(Dimension scaledSize)
     {
         setSize(scaledSize);
