@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.*;
@@ -9,13 +10,18 @@ public class MainWindow extends JFrame
 
     private JPanel contentPane;
 
+    private MainWindow() {/* prevent default instances from being created */}
+
      /**
      * Create the frame.
      */
-    public MainWindow()
+    public MainWindow(Dimension scaledSize)
     {
+        setSize(scaledSize);
+        // center the JFrame in the middle of the screen
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        
         contentPane = new JPanel();
         addLabel(contentPane);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

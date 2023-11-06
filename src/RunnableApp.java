@@ -1,10 +1,13 @@
-    public class RunnableApp implements Runnable 
+import java.awt.Dimension;
+
+public class RunnableApp implements Runnable 
     {
         public void run()
         {
             try
             {
-                MainWindow frame = new MainWindow();
+                Dimension scaledSize = SwingUtilities.getScaledSize(0.75, 100);
+                MainWindow frame = new MainWindow(scaledSize);
                 frame.setTitle("Java Swing Example");
                 frame.setVisible(true);
             }
