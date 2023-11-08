@@ -1,7 +1,7 @@
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-public class SwingUtilities 
+public class SwingScreenUtilities
 {
     /**
      * Gets a rectangle that is scaled to a percentage of available device screen size,

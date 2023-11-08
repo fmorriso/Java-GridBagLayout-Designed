@@ -3,18 +3,18 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 
-public class MainWindow extends JFrame
+public class MainFrame extends JFrame
 {
 
     private JPanel contentPane;
 
     @SuppressWarnings("unused")
-	private MainWindow() {/* prevent default instances from being created */}
+	private MainFrame() {/* prevent default instances from being created */}
 
     /**
      * Create the frame.
     */
-    public MainWindow(Dimension scaledSize)
+    public MainFrame(Dimension scaledSize)
     {
         setSize(scaledSize);
         // center the JFrame in the middle of the screen
