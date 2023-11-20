@@ -31,18 +31,13 @@ public class MainFrame extends JFrame
 
 
         // 2. Create Swing component
-        final JTextArea textArea = new JTextArea();
-        JButton button = new JButton("Click me!" );
-        button.addActionListener(ae -> {
-            textArea.append("Hello\n");
-        });
+        JTextArea textArea = new JTextArea();
 
         detailsPanel = new DetailsPanel(scaledSize);
 
         // 3. Add Swing component to content pane
         Container c = getContentPane();
         c.add(textArea, BorderLayout.CENTER);
-        c.add(button, BorderLayout.SOUTH);
         c.add(detailsPanel, BorderLayout.WEST);
 
         // ===============================================

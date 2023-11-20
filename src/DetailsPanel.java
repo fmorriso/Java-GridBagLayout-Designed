@@ -24,11 +24,12 @@ public class DetailsPanel extends JPanel
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 
+        // gc.fill = GridBagConstraints.HORIZONTAL;
+
         //// First row, first column
-        gc.anchor = GridBagConstraints.LINE_END;
+        gc.anchor = GridBagConstraints.LINE_END; // right-justify the JLabels
         gc.weightx = 0.5;
         gc.weighty = 0.5;
-
 
         gc.gridx = 0;
         gc.gridy = 0;
@@ -40,7 +41,7 @@ public class DetailsPanel extends JPanel
         add(occupationLabel, gc);
 
         //// First row, second column
-        gc.anchor = GridBagConstraints.LINE_START;
+        gc.anchor = GridBagConstraints.LINE_START; // left-justify the text fields
         gc.gridx = 1;
         gc.gridy = 0;
         add(nameField, gc);
@@ -49,6 +50,14 @@ public class DetailsPanel extends JPanel
         gc.gridx = 1;
         gc.gridy = 1;
         add(occupationField, gc);
+
+        /// Third row, second column
+        gc.weighty = 10; // make the last row take up the majority of the vertical room
+        gc.anchor = GridBagConstraints.FIRST_LINE_START;
+        gc.gridx = 1;
+        gc.gridy = 2;
+        add(addBtn, gc);
+
 
     }
 }
