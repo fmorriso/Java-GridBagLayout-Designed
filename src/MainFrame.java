@@ -1,7 +1,8 @@
-import java.awt.Dimension;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.net.JarURLConnection;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
 
 public class MainFrame extends JFrame
 {
@@ -21,7 +22,26 @@ public class MainFrame extends JFrame
         // center the JFrame in the middle of the screen
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
+        // Part II of videos:
+        // 1. Set Layout Manager
+        setLayout(new BorderLayout());
+
+
+        // 2. Create Swing component
+        final JTextArea textArea = new JTextArea();
+        JButton button = new JButton("Click me!" );
+        button.addActionListener(ae -> {
+            textArea.append("Hello\n");
+        });
+
+        // 3. Add Swing component to content pane
+        Container c = getContentPane();
+        c.add(textArea, BorderLayout.CENTER);
+        c.add(button, BorderLayout.SOUTH);
+
+        // ===============================================
+/*
         contentPane = new JPanel();
         addLabel(contentPane);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -33,6 +53,7 @@ public class MainFrame extends JFrame
         gbl_contentPane.columnWeights = new double[]{Double.MIN_VALUE};
         gbl_contentPane.rowWeights = new double[]{Double.MIN_VALUE};
         contentPane.setLayout(gbl_contentPane);
+ */
     }
 
     private void addLabel(JPanel pnl)
