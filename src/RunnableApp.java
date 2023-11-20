@@ -6,9 +6,8 @@ public class RunnableApp implements Runnable
         {
             try
             {
-                Dimension scaledSize = SwingScreenUtilities.getScaledSize(0.75, 100);
+                Dimension scaledSize = SwingScreenUtilities.getScaledSize(0.5, 100);
                 MainFrame frame = new MainFrame(scaledSize);
-                frame.setTitle("Java Swing Example");
                 frame.setVisible(true);
             }
             catch (Exception e)

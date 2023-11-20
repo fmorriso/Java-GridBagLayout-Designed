@@ -16,6 +16,7 @@ public class MainFrame extends JFrame
     */
     public MainFrame(Dimension scaledSize)
     {
+        setTitle("Java Swing Example");
         setSize(scaledSize);
         // center the JFrame in the middle of the screen
         setLocationRelativeTo(null);
