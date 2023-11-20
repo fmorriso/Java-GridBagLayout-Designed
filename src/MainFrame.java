@@ -8,6 +8,7 @@ public class MainFrame extends JFrame
 {
 
     private JPanel contentPane;
+    private DetailsPanel detailsPanel;
 
     @SuppressWarnings("unused")
 	private MainFrame() {/* prevent default instances from being created */}
@@ -19,6 +20,7 @@ public class MainFrame extends JFrame
     {
         setTitle("Java Swing Example");
         setSize(scaledSize);
+        setPreferredSize(scaledSize);
         // center the JFrame in the middle of the screen
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,10 +37,13 @@ public class MainFrame extends JFrame
             textArea.append("Hello\n");
         });
 
+        detailsPanel = new DetailsPanel(scaledSize);
+
         // 3. Add Swing component to content pane
         Container c = getContentPane();
         c.add(textArea, BorderLayout.CENTER);
         c.add(button, BorderLayout.SOUTH);
+        c.add(detailsPanel, BorderLayout.WEST);
 
         // ===============================================
 /*
