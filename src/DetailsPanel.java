@@ -15,12 +15,40 @@ public class DetailsPanel extends JPanel
         JLabel nameLabel =new JLabel("Name: ");
         JLabel occupationLabel = new JLabel("Occupation: ");
 
-        JTextField nameField = new JTextField(10); // 10 = number of columns
-        JTextField occupationField = new JTextField(10);
+        final int TEXT_FIELD_COLUMNS_WIDTH = size.width / 16;
+        JTextField nameField = new JTextField(TEXT_FIELD_COLUMNS_WIDTH); // 10 = number of columns
+        JTextField occupationField = new JTextField(TEXT_FIELD_COLUMNS_WIDTH);
 
         JButton addBtn = new JButton("Add");
 
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+
+        //// First row, first column
+        gc.anchor = GridBagConstraints.LINE_END;
+        gc.weightx = 0.5;
+        gc.weighty = 0.5;
+
+
+        gc.gridx = 0;
+        gc.gridy = 0;
+        add(nameLabel, gc);
+
+        //// Second row, first column
+        gc.gridx = 0;
+        gc.gridy = 1;
+        add(occupationLabel, gc);
+
+        //// First row, second column
+        gc.anchor = GridBagConstraints.LINE_START;
+        gc.gridx = 1;
+        gc.gridy = 0;
+        add(nameField, gc);
+
+        //// Second row, second column
+        gc.gridx = 1;
+        gc.gridy = 1;
+        add(occupationField, gc);
+
     }
 }
