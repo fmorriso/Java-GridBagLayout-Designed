@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.event.EventListenerList;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.EventListener;
 
 public class DetailsPanel extends JPanel
@@ -84,6 +86,14 @@ public class DetailsPanel extends JPanel
 
     public void fireDetailEvent(DetailEvent event)
     {
+        // we only care about certain listeners
+        DetailListener[] listeners = listenerList.getListeners(DetailListener.class);
+        for (DetailListener detailListener: listeners)
+        {
+            detailListener.detailEventOccurred(event);
+        }
+
+        /* ALTERNATIVE USING ARRAYS
         // {class, listener} pairs
         Object[] listeners =  listenerList.getListenerList();
         for (int i = 0; i < listeners.length ; i += 2)
@@ -94,6 +104,7 @@ public class DetailsPanel extends JPanel
                 listener.detailEventOccurred(event);
             }
         }
+        */
     }
 
     public void addDetailListener(DetailListener listener)
