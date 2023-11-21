@@ -1,8 +1,16 @@
 import javax.swing.*;
+import javax.swing.event.EventListenerList;
 import java.awt.*;
+import java.awt.event.*;
+import java.util.EventListener;
 
 public class DetailsPanel extends JPanel
 {
+    private EventListenerList listenerList = new EventListenerList();
+
+    /** Constructs an instance of the Details panel, scaled with the help of the parent JFrame's dimension.
+     * @param frameSize - The width and height of the parent JFrame in the form of a Dimension instance.
+     */
     public DetailsPanel(Dimension frameSize)
     {
         Dimension size = getPreferredSize();
@@ -20,6 +28,8 @@ public class DetailsPanel extends JPanel
         JTextField occupationField = new JTextField(TEXT_FIELD_COLUMNS_WIDTH);
 
         JButton addBtn = new JButton("Add");
+        addBtn.addActionListener((ActionEvent ae) -> addBtnClicked(nameField.getText(), occupationField.getText()));
+
 
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
@@ -59,5 +69,40 @@ public class DetailsPanel extends JPanel
         add(addBtn, gc);
 
 
+    }
+
+    /** Responds to the Add button being clicked.
+     * @param name - the name of the person being added.
+     * @param occupation - the occupation of the person being added.
+     */
+    private void addBtnClicked(String name, String occupation)
+    {
+        if(name.length() == 0 || occupation.length() == 0) return;
+        String text = String.format("Name: %s%nOccupation: %s%n", name, occupation);
+        fireDetailEvent(new DetailEvent(this, text));
+    }
+
+    public void fireDetailEvent(DetailEvent event)
+    {
+        // {class, listener} pairs
+        Object[] listeners =  listenerList.getListenerList();
+        for (int i = 0; i < listeners.length ; i += 2)
+        {
+            if(listeners[i] == DetailListener.class)
+            {
+                DetailListener listener = (DetailListener) listeners[i+1];
+                listener.detailEventOccurred(event);
+            }
+        }
+    }
+
+    public void addDetailListener(DetailListener listener)
+    {
+        listenerList.add(DetailListener.class, listener);
+    }
+
+    public void removeDetailListener(DetailListener listener)
+    {
+        listenerList.remove(DetailListener.class, listener);
     }
 }

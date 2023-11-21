@@ -34,26 +34,20 @@ public class MainFrame extends JFrame
         JTextArea textArea = new JTextArea();
 
         detailsPanel = new DetailsPanel(scaledSize);
+        detailsPanel.addDetailListener(new DetailListener(){
+            @Override
+            public void detailEventOccurred(DetailEvent event)
+            {
+                String text = event.getText();
+                textArea.append(text);
+            }
+        });
 
         // 3. Add Swing component to content pane
         Container c = getContentPane();
         c.add(textArea, BorderLayout.CENTER);
         c.add(detailsPanel, BorderLayout.WEST);
 
-        // ===============================================
-/*
-        contentPane = new JPanel();
-        addLabel(contentPane);
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-        setContentPane(contentPane);
-        GridBagLayout gbl_contentPane = new GridBagLayout();
-        gbl_contentPane.columnWidths = new int[]{0};
-        gbl_contentPane.rowHeights = new int[]{0};
-        gbl_contentPane.columnWeights = new double[]{Double.MIN_VALUE};
-        gbl_contentPane.rowWeights = new double[]{Double.MIN_VALUE};
-        contentPane.setLayout(gbl_contentPane);
- */
     }
 
     private void addLabel(JPanel pnl)
