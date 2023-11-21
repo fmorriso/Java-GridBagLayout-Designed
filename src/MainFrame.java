@@ -34,13 +34,10 @@ public class MainFrame extends JFrame
         JTextArea textArea = new JTextArea();
 
         detailsPanel = new DetailsPanel(scaledSize);
-        detailsPanel.addDetailListener(new DetailListener(){
-            @Override
-            public void detailEventOccurred(DetailEvent event)
-            {
-                String text = event.getText();
-                textArea.append(text);
-            }
+        detailsPanel.addDetailListener((DetailEvent event) ->
+        {
+            String text = event.getText();
+            textArea.append(String.format("%s%n", text));
         });
 
         // 3. Add Swing component to content pane
