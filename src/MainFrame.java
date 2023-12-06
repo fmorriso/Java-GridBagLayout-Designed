@@ -1,13 +1,10 @@
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.net.JarURLConnection;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 public class MainFrame extends JFrame
 {
 
-    private JPanel contentPane;
+    // private JPanel contentPane;
     private DetailsPanel detailsPanel;
 
     @SuppressWarnings("unused")
@@ -46,32 +43,5 @@ public class MainFrame extends JFrame
         c.add(detailsPanel, BorderLayout.WEST);
 
     }
-
-    private void addLabel(JPanel pnl)
-    {
-        JLabel msg = new JLabel(String.format("Java version %s", getJavaVersionInformation()));
-        pnl.add(msg);
-    }
-
-    private String getJavaVersionInformation() {
-        String version = System.getProperty("java.version");
-
-        Runtime.Version runTimeVersion = Runtime.version();
-        version = runTimeVersion.toString();
-        return version;
-       /* 
-        System.out.println("java.version=" + version);
-
-        version = System.getProperty("java.specification.version");
-        System.out.println("java.specification.version=" + version);
-
-        version = System.getProperty("java.runtime.version");
-        System.out.println("java.runtime.version=" + version);
-
-        Runtime.Version runTimeVersion = Runtime.version();
-        System.out.println("RunTime.Version=" + runTimeVersion);
-        System.out.println("RunTime.Version.feature()=" + runTimeVersion.feature()); // major version
-       */
-    }
-
+    
 }

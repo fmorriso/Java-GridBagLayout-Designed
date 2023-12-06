@@ -2,9 +2,6 @@ import javax.swing.*;
 import javax.swing.event.EventListenerList;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.EventListener;
 
 public class DetailsPanel extends JPanel
 {
