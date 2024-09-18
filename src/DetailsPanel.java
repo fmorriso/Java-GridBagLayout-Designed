@@ -17,7 +17,8 @@ public class DetailsPanel extends JPanel
         size.height = frameSize.height;
         setPreferredSize(size);
         // put a border around our form
-        setBorder(BorderFactory.createTitledBorder("Personal Details"));
+        String title = String.format("Personal Details");
+        setBorder(BorderFactory.createTitledBorder(title));
 
         JLabel nameLabel =new JLabel("Name: ");
         JLabel occupationLabel = new JLabel("Occupation: ");
@@ -113,4 +114,6 @@ public class DetailsPanel extends JPanel
     {
         listenerList.remove(DetailListener.class, listener);
     }
+    
+
 }

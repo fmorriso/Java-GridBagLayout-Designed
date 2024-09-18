@@ -15,7 +15,7 @@ public class MainFrame extends JFrame
     */
     public MainFrame(Dimension scaledSize)
     {
-        setTitle("Java Swing Example");
+        setTitle(String.format("Java Swing Example using java version %s",getJavaVersion()));
         setSize(scaledSize);
         setPreferredSize(scaledSize);
         // center the JFrame in the middle of the screen
@@ -42,6 +42,15 @@ public class MainFrame extends JFrame
         c.add(textArea, BorderLayout.CENTER);
         c.add(detailsPanel, BorderLayout.WEST);
 
+    }
+    
+    /** get the java version that is running the current program
+     * @return string containing the java version running the current program
+     */
+    private static String getJavaVersion()
+    {
+        Runtime.Version runTimeVersion = Runtime.version();
+        return String.format("%s.%s.%s.%s", runTimeVersion.feature(), runTimeVersion.interim(), runTimeVersion.update(), runTimeVersion.patch());
     }
     
 }
